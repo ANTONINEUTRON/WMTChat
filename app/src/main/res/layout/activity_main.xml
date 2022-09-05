@@ -6,20 +6,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabTextColor="@color/white"
-        app:tabIconTint="@color/white"
-        android:layout_gravity="top"
-        app:tabIndicatorColor="@color/white"
-        android:background="@color/green"/>
+        android:layout_height="wrap_content">
+       <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+             android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="@color/white"
+            app:tabIconTint="@color/white"
+            android:layout_gravity="top"
+            app:tabIndicatorColor="@color/white"
+            android:background="@color/green"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"/>
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

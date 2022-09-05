@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Antoni/AndroidStudioProjects/WMTChat/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.1355" />
+        <entry key="..\:/Users/Antoni/AndroidStudioProjects/WMTChat/app/src/main/res/layout/activity_chat.xml" value="0.10885416666666667" />
         <entry key="..\:/Users/Antoni/AndroidStudioProjects/WMTChat/app/src/main/res/layout/activity_main.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/Antoni/AndroidStudioProjects/WMTChat/app/src/main/res/layout/activity_new_group.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/Antoni/AndroidStudioProjects/WMTChat/app/src/main/res/layout/fragment_call.xml" value="0.1" />

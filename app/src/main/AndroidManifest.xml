@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.tech4dev.wmtchat">
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -15,10 +16,13 @@
         android:theme="@style/Theme.WMTChat"
         tools:targetApi="31">
         <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewGroupActivity"
             android:exported="false"
             android:label="New Group"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
