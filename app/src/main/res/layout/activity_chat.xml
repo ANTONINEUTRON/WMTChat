@@ -14,17 +14,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:weightSum="10">
 <!--        This will show the messages-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/messageSection"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_weight="10"/>
 
 <!--        This will enable us send message-->
         <LinearLayout
@@ -35,18 +36,46 @@
             android:layout_margin="3dp"
             android:gravity="center"
             android:layout_gravity="bottom">
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/white"
-                android:layout_weight="95">
-                <EditText
-                    android:id="@+id/message"
+                android:layout_weight="95"
+                app:cardCornerRadius="30dp">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Message"/>
-            </LinearLayout>
+                    android:orientation="horizontal"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:weightSum="10">
+                    <ImageButton
+                        android:id="@+id/showEmoji"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="#6E6C6C"
+                        android:background="@drawable/ic_baseline_tag_faces_24" />
+                    <EditText
+                        android:id="@+id/message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Message"
+                        android:layout_weight="10"
+                        android:background="@null"/>
+                    <ImageButton
+                        android:id="@+id/attach_file"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="#6E6C6C"
+                        android:background="@drawable/ic_baseline_attach_file_24" />
+                    <ImageButton
+                        android:id="@+id/openCamera"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="#6E6C6C"
+                        android:background="@drawable/ic_baseline_photo_camera_24" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -54,6 +83,7 @@
                 android:layout_gravity="end"
                 android:layout_weight="5"
                 android:backgroundTint="@color/green"
+                android:layout_marginLeft="5dp"
                 android:src="@drawable/ic_baseline_send_24"/>
         </LinearLayout>
     </LinearLayout>
