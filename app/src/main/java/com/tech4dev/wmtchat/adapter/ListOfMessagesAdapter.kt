@@ -23,7 +23,7 @@ class ListOfMessagesAdapter(val context: Context): RecyclerView.Adapter<ListOfMe
     }
 
     override fun onBindViewHolder(holder: MsgViewHolder, position: Int) {
-        holder.username.text = listOfMessages[position].username
+        holder.username.text = listOfMessages[position].sender
         holder.message.text = listOfMessages[position].message
 
         holder.itemView.setOnClickListener {
