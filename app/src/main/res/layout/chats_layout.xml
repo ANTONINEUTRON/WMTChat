@@ -6,18 +6,25 @@
     android:orientation="vertical">
 <!--    Sender message section-->
     <androidx.cardview.widget.CardView
+        android:id="@+id/senderSection"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#FFFAFA"
+            android:padding="5dp">
             <TextView
                 android:id="@+id/senderMessage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sender Message to be shown here"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/sendTime"
@@ -31,19 +38,25 @@
 
 <!--    Receiver message section-->
     <androidx.cardview.widget.CardView
+        android:id="@+id/userSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end">
+        android:layout_gravity="end"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#BDC8BE"
+            android:padding="5dp">
             <TextView
                 android:id="@+id/messageSent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Receiver Message here"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/messageSentTime"

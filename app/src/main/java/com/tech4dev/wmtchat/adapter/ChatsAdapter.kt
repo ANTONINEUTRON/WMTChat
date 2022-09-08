@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.tech4dev.wmtchat.R
 import com.tech4dev.wmtchat.SampleChats
@@ -14,6 +16,7 @@ import com.tech4dev.wmtchat.model.Message
 class ChatsAdapter(val context: Context, val userName: String): RecyclerView.Adapter<ChatsAdapter.ChatsViewHolder>() {
     val sampleChats = SampleChats()
     val chat: Chats? = sampleChats.getChatsOf(userName)
+    val listOfMessages: List<Message> = chat!!.messages
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatsViewHolder {
         val itemView: View = LayoutInflater.from(context).inflate(R.layout.chats_layout, parent, false)
@@ -22,14 +25,33 @@ class ChatsAdapter(val context: Context, val userName: String): RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: ChatsViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val message: Message = listOfMessages[position]
+
+        //Identify what type of message it is and show at the appropriete position
+        if(message.sender == "me"){
+            holder.messageSent.text = message.message
+            holder.msgSentTime.text = message.time
+
+            holder.leftSection.visibility = View.GONE
+        }else{
+            holder.senderMessage.text = message.message
+            holder.sendTime.text = message.time
+
+            holder.rightSection.visibility = View.GONE
+        }
     }
 
     override fun getItemCount(): Int {
-        return chat?.messages?.size ?: 0
+        return listOfMessages.size
     }
 
     class ChatsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        //TODO
+        val senderMessage: TextView = itemView.findViewById(R.id.senderMessage)
+        val sendTime: TextView = itemView.findViewById(R.id.sendTime)
+        val messageSent: TextView = itemView.findViewById(R.id.messageSent)
+        val msgSentTime: TextView = itemView.findViewById(R.id.messageSentTime)
+
+        val leftSection: CardView = itemView.findViewById(R.id.senderSection)
+        val rightSection: CardView = itemView.findViewById(R.id.userSection)
     }
 }
