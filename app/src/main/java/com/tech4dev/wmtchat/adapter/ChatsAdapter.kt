@@ -13,10 +13,7 @@ import com.tech4dev.wmtchat.SampleMessages
 import com.tech4dev.wmtchat.model.Chats
 import com.tech4dev.wmtchat.model.Message
 
-class ChatsAdapter(val context: Context, val userName: String): RecyclerView.Adapter<ChatsAdapter.ChatsViewHolder>() {
-    val sampleChats = SampleChats()
-    val chat: Chats? = sampleChats.getChatsOf(userName)
-    val listOfMessages: List<Message> = chat!!.messages
+class ChatsAdapter(val context: Context, val listOfMessages: List<Message>): RecyclerView.Adapter<ChatsAdapter.ChatsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatsViewHolder {
         val itemView: View = LayoutInflater.from(context).inflate(R.layout.chats_layout, parent, false)

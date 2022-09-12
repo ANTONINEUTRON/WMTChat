@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.tech4dev.wmtchat.adapter.ChatsAdapter
+import com.tech4dev.wmtchat.model.Chats
+import com.tech4dev.wmtchat.model.Message
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ChatActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
@@ -23,22 +27,45 @@ class ChatActivity : AppCompatActivity() {
         //Get username from the Intent which starts the activity
         val username: String = intent.getStringExtra("USER") ?: ""
 
+        val sampleChats = SampleChats()
+        //Get chat details of the specified user
+        val chat: Chats? = sampleChats.getChatsOf(username)
+        //Get the messages of the specified user
+        val listOfMessages: MutableList<Message> = chat!!.messages.toMutableList()
+
         setupToolbar(username)
-        setupChatRecyclerview(username)
+
+        setupChatRecyclerview(listOfMessages)
 
         messageTyped = findViewById(R.id.message)
         sendButton = findViewById(R.id.sendButton)
 
         sendButton.setOnClickListener{
+            //Get user input
             val userInput: String = messageTyped.text.toString() ?: ""
-            Toast.makeText(this, userInput, Toast.LENGTH_LONG).show()
+            //Update the listOfMessages above
+            val sdf = SimpleDateFormat("h:mm a")
+            val time: String = sdf.format(Date())
+            ////Create a message type
+            val message = Message(
+                sender = "me",
+                time = time,
+                message = userInput,
+                receiver = username
+            )
+            ////Then add to list
+            listOfMessages.add(message)
+
+            setupChatRecyclerview(listOfMessages)
+
+            messageTyped.setText("")
         }
     }
 
-    private fun setupChatRecyclerview(username: String) {
+    private fun setupChatRecyclerview(listOfMessages: List<Message>) {
         messageRV = findViewById(R.id.messageSection)
         messageRV.layoutManager = LinearLayoutManager(this)
-        messageRV.adapter = ChatsAdapter(this, username)
+        messageRV.adapter = ChatsAdapter(this, listOfMessages)
     }
 
     private fun setupToolbar(username: String) {
