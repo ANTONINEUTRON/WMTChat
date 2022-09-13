@@ -4,6 +4,7 @@
     package="com.tech4dev.wmtchat">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera.flash"/>
 
     <application
         android:allowBackup="true"
