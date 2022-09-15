@@ -4,7 +4,7 @@
     package="com.tech4dev.wmtchat">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.hardware.camera.flash"/>
+    <uses-permission android:name="android.hardware.camera.flash" />
 
     <application
         android:allowBackup="true"
@@ -17,9 +17,12 @@
         android:theme="@style/Theme.WMTChat"
         tools:targetApi="31">
         <activity
+            android:name=".CameraActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".NewGroupActivity"
             android:exported="false"

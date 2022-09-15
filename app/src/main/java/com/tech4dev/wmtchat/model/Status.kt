@@ -1,4 +1,6 @@
 package com.tech4dev.wmtchat.model
 
-class Status {
-}
+data class Status(
+    val name: String,
+    val time: String
+)
