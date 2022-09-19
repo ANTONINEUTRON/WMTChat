@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tech4dev.wmtchat.R
+import com.tech4dev.wmtchat.adapter.CallsAdapter
 
 class CallFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -27,7 +28,7 @@ class CallFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = view.findViewById(R.id.callRV)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter =
+        recyclerView.adapter = CallsAdapter(requireContext())
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
