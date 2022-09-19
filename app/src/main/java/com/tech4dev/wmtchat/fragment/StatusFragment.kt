@@ -2,10 +2,8 @@ package com.tech4dev.wmtchat.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -16,6 +14,12 @@ import com.tech4dev.wmtchat.adapter.StatusAdapter
 class StatusFragment : Fragment() {
     private lateinit var statusRecyclerView: RecyclerView
     private lateinit var cameraBtn: FloatingActionButton
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,5 +44,11 @@ class StatusFragment : Fragment() {
         statusRecyclerView = view.findViewById(R.id.statusRV)
         statusRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         statusRecyclerView.adapter = StatusAdapter(requireContext())
+    }
+
+    //Create menu
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.status_menu, menu)
     }
 }

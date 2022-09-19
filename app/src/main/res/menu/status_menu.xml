@@ -9,18 +9,9 @@
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView" />
     <item
-        android:id="@+id/new_group"
-        android:title="New group" />
-    <item
-        android:id="@+id/new_broadcast"
-        android:title="New Broadcast" />
-    <item
-        android:id="@+id/linked_devices"
-        android:title="Linked Devices"/>
-    <item
-        android:id="@+id/starred_messages"
-        android:title="Starred Messages"/>
+        android:id="@+id/status_privacy"
+        android:title="Status Privacy"/>
     <item
         android:id="@+id/settings"
-        android:title="Settings" />
+        android:title="Settings"/>
 </menu>

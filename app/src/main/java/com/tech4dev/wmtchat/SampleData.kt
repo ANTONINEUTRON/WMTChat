@@ -1,9 +1,15 @@
 package com.tech4dev.wmtchat
 
-import com.tech4dev.wmtchat.model.Chats
-import com.tech4dev.wmtchat.model.Message
-import com.tech4dev.wmtchat.model.Status
-import com.tech4dev.wmtchat.model.User
+import com.tech4dev.wmtchat.model.*
+
+class SampleCalls{
+    val LIST_OF_CALLS: MutableList<CallModel> = mutableListOf(
+        CallModel("Jerry Springer", "Sptember 15, 10:19"),
+        CallModel("Vivian Okorie", "September 16, 11:20"),
+        CallModel("Michael Spence", "September 16, 02:13"),
+        CallModel("+234 8125260122", "September 22, 12:05")
+    )
+}
 
 class SampleStatus{
     val LIST_OF_STATUS: List<Status> = listOf(
